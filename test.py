@@ -4,9 +4,9 @@ import ccxt
 import time
 
 # === CONFIG ===
-money = 13133.684646  # start with 10K
+money = 10000  # start with 10K
 FEE = 0.001  # 0.1% Binance spot fee
-TEST_MODE = False  # Set False for real Binance data
+TEST_MODE = True  # Set False for real Binance data
 MAX_PATH_LEN = 4
 TOP_COINS = [
     "BTC", "ETH", "BNB", "SOL", "XRP", "ADA", "DOGE",
@@ -106,9 +106,10 @@ if __name__ == "__main__":
             print("\n=== Profitable Trades This Cycle ===")
             for t in profitable_trades:
                 print(t)
-
+                
+        # Shows your balance after each cycle
         print(f"\n💰 Current Balance: {money:.6f}\n")
 
         if TEST_MODE:
             break
-        time.sleep(5)
+        time.sleep(5) # To not surpass the binance rate limit
